@@ -1,6 +1,7 @@
 import axios from 'axios'
 import * as cheerio from 'cheerio'
 import template from '../templates/fe.js'
+import fs from 'node:fs'
 
 export default async (event) => {
   try {
@@ -28,7 +29,12 @@ export default async (event) => {
     })
 
     console.log(result)
+
+    if (process.env.DEBUG === 'true' && result.message) {
+      // 從主程式位置
+      fs.writeFileSync('./dump/fe.json', JSON.stringify(courses, null, 2))
+    }
   } catch (err) {
-    console.log(err)
+    console.error(err)
   }
 }
