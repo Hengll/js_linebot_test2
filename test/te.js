@@ -1,9 +1,16 @@
-import axios from 'axios';
+import axios from 'axios'
+import * as cheerio from 'cheerio';
 
 (async () => {
   try {
     const { data } = await axios.get('https://wdaweb.github.io/')
-    console.log(data)
+    const $ = cheerio.load(data)
+    // console.log($('#fe .card-title').text())
+    const courses = []
+    $('#fe .card-title').each(function () {
+      courses.push($(this).text().trim())
+    })
+    console.log(courses)
   } catch (err) {
     console.log(err)
   }
