@@ -15,6 +15,8 @@ bot.on('message', event => {
       commandUSD(event)
     } else if (event.message.text === 'fe') {
       commandFE(event)
+    } else {
+      event.reply('請輸入正確指令喔')
     }
   }
 })
