@@ -1,0 +1,11 @@
+npm i -D nodemon
+
+npm init @eslint/config@latest -- --eslintrc --config eslint-config-standard
+
+"editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+}
+
+CHANNEL_ID=
+CHANNEL_SECRET=
+CHANNEL_ACCESS_TOKEN=
