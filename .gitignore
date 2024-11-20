@@ -1,5 +1,4 @@
 node_modules
 dump/*.json
 .env
-.vscode
 
