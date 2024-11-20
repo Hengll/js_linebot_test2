@@ -3,6 +3,7 @@ import linebot from 'linebot'
 import commandUSD from './commands/usd.js'
 import commandFE from './commands/fe.js'
 import commandQR from './commands/qr.js'
+import commandGOD from './commands/twgod.js'
 
 const bot = linebot({
   channelId: process.env.CHANNEL_ID,
@@ -18,9 +19,10 @@ bot.on('message', event => {
       commandFE(event)
     } else if (event.message.text === 'qr') {
       commandQR(event)
-    } else {
-      event.reply('請輸入正確指令喔')
     }
+  } else if (event.message.type === 'location') {
+    // console.log(event)
+    commandGOD(event)
   }
 })
 
